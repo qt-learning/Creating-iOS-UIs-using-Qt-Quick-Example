@@ -1,0 +1,29 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="back-dark">images/stackview-backarrow-dark.png</file>
+        <file>images/stackview-backarrow-dark@2x.png</file>
+        <file>images/stackview-backarrow-dark@3x.png</file>
+        <file>images/stackview-backarrow-light@2x.png</file>
+        <file>images/stackview-backarrow-light@3x.png</file>
+        <file alias="back-light">images/stackview-backarrow-light.png</file>
+        <file>images/arrow-indicator-dark.png</file>
+        <file>images/arrow-indicator-dark@2x.png</file>
+        <file>images/arrow-indicator-dark@3x.png</file>
+        <file>images/arrow-indicator-light.png</file>
+        <file>images/arrow-indicator-light@2x.png</file>
+        <file>images/arrow-indicator-light@3x.png</file>
+        <file>TaskPage.qml</file>
+        <file>HomePage.qml</file>
+        <file>SettingsPage.qml</file>
+        <file>NavBar.qml</file>
+        <file>images/list.png</file>
+        <file>images/settings@3x.png</file>
+        <file>images/settings@2x.png</file>
+        <file>images/settings.png</file>
+        <file>images/list@3x.png</file>
+        <file>images/list@2x.png</file>
+        <file>images/add-new@3x.png</file>
+        <file>images/add-new.png</file>
+        <file>images/add-new@2x.png</file>
+    </qresource>
+</RCC>
