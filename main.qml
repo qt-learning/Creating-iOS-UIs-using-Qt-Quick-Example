@@ -15,7 +15,6 @@ ApplicationWindow {
         width: parent.width
         height: parent.height
         initialItem: "qrc:/HomePage.qml"
-
     }
 
     footer: TabBar {

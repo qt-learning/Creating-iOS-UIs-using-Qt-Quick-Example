@@ -1,3 +1,4 @@
+!uikit: error(This demo is only supported on iOS)
 QT += quick
 
 SOURCES += \
@@ -24,3 +25,12 @@ DISTFILES += \
     NavBar.qml \
     SettingsPage.qml \
     TaskPage.qml
+
+HEADERS += \
+    qdatetimepicker.h
+
+ios {
+    LIBS += -framework UIKit
+    OBJECTIVE_SOURCES += \
+    qdatetimepicker.mm
+}

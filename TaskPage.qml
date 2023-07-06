@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls.iOS
 import QtQuick.Layouts
+import DateTimePicker
 
 Page {
     id: page
@@ -56,14 +57,13 @@ Page {
 
         ColumnLayout {
             width: parent.width
-            height: parent.height
 
             TextArea {
                 id: textArea
 
                 Layout.fillWidth: true
                 Layout.preferredHeight: 80
-                Layout.topMargin: titleRow.height + 20
+                Layout.topMargin: titleRow.height + 10
 
                 leftPadding: 15
                 bottomPadding: 10
@@ -85,14 +85,23 @@ Page {
                 }
             }
 
+            Label {
+                Layout.leftMargin: 20
+                Layout.topMargin: 20
+
+                text: qsTr("Tasks")
+                font.pointSize: 15
+                font.capitalization: Font.AllUppercase
+                color: palette.placeholderText
+            }
             ListView {
                 id: taskListView
+
+                Layout.fillWidth: true
+                Layout.preferredHeight: contentItem.height
+
                 model: taskModel
                 clip: true
-
-                width: parent.width
-                height: parent.height
-                Layout.topMargin: 30
 
                 ListModel {
                     id: taskModel
@@ -116,6 +125,7 @@ Page {
 
                 delegate: CheckDelegate {
                     id: taskList
+
                     width: taskListView.width
                     checked: done
                     text: title
@@ -130,8 +140,39 @@ Page {
                     }
                 }
             }
+
+
+            Label {
+                Layout.leftMargin: 20
+                Layout.topMargin: 20
+
+                text: qsTr("Schedule")
+                font.pointSize: 15
+                font.capitalization: Font.AllUppercase
+                color: palette.placeholderText
+            }
+            SwitchDelegate {
+                id: deadlineSwitch
+                Layout.fillWidth: true
+                text: qsTr("Deadline")
+
+                onCheckedChanged: {
+                    if (checked)
+                        picker.showPicker()
+                }
+
+                DateTimePicker {
+                    id: picker
+
+                    onSelectedDateChanged: {
+                        deadlineSwitch.text = Qt.formatDateTime(picker.selectedDate, "d MMM hh:mm") ?? qsTr("Deadline")
+                    }
+                }
+            }
+
         }
     }
+
     Popup {
         id: addTaskPopup
         parent: root

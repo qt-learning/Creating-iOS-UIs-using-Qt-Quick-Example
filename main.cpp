@@ -1,9 +1,13 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include "qdatetimepicker.h"
 
 
 int main(int argc, char *argv[])
 {
+
+    qmlRegisterType<QDateTimePicker>("DateTimePicker", 1, 0, "DateTimePicker");
+
     QGuiApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
