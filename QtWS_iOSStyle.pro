@@ -29,8 +29,7 @@ DISTFILES += \
 HEADERS += \
     qdatetimepicker.h
 
-ios {
-    LIBS += -framework UIKit
-    OBJECTIVE_SOURCES += \
-    qdatetimepicker.mm
-}
+
+LIBS += -framework UIKit
+OBJECTIVE_SOURCES += \
+qdatetimepicker.mm

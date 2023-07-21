@@ -1,30 +1,29 @@
 #include "qdatetimepicker.h"
 
 #ifdef Q_OS_IOS
-#import <UIKit/UIKit.h>
-#endif
 
-@interface DatePickerController : UIViewController <UISheetPresentationControllerDelegate>
-- (instancetype) initWithDelegate:(QDateTimePicker *)qPicker;
-- (void) showPicker;
-- (void) selectedDateChanged;
+#import <UIKit/UIKit.h>
+
+@interface DatePickerController : UIViewController
+- (instancetype)initWithQDateTimePicker:(QDateTimePicker *)qPicker;
+- (void)showPicker;
+- (void)selectedDateChanged;
 @end
 
-@implementation DatePickerController
-{
+@implementation DatePickerController {
+  QDateTimePicker *qDatePicker;
   UIDatePicker *picker;
-  QDateTimePicker *delegate;
 }
 
-- (instancetype) initWithDelegate:(QDateTimePicker *)qPicker
+- (instancetype)initWithQDateTimePicker:(QDateTimePicker *)qPicker
 {
     if (self = [super init]) {
-        delegate = qPicker;
+        qDatePicker = qPicker;
         return self;
     }
 }
 
-- (void) showPicker
+- (void)showPicker
 {
     // create and configure a view controller to present the date picker
     if (@available(iOS 15.0, *)) {
@@ -70,7 +69,7 @@
 
 - (void) selectedDateChanged
 {
-    delegate->setSelectedDate(QDateTime::fromNSDate(picker.date));
+    qDatePicker->setSelectedDate(QDateTime::fromNSDate(picker.date));
 }
 
 - (void) doneButtonTapped
@@ -78,20 +77,20 @@
    UIViewController *rootVC = [UIApplication sharedApplication].keyWindow.rootViewController;
    [rootVC dismissViewControllerAnimated:TRUE completion:nil];
 }
-
 @end
+
+#endif
 
 QDateTimePicker::QDateTimePicker(QQuickItem *parent)
     : QQuickItem(parent)
 {
-
 }
 
-void QDateTimePicker::showPicker()
+void QDateTimePicker::showDatePicker()
 {
 #ifdef Q_OS_IOS
-    DatePickerController *datePickerController = [[DatePickerController alloc] initWithDelegate:this];
-    [datePickerController showPicker];
+    DatePickerController *controller = [[[DatePickerController alloc] initWithQDateTimePicker:this] autorelease];
+    [controller showPicker];
 #endif
 }
 

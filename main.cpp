@@ -2,13 +2,11 @@
 #include <QQmlApplicationEngine>
 #include "qdatetimepicker.h"
 
-
 int main(int argc, char *argv[])
 {
+    QGuiApplication app(argc, argv);
 
     qmlRegisterType<QDateTimePicker>("DateTimePicker", 1, 0, "DateTimePicker");
-
-    QGuiApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
     const QUrl url(u"qrc:/QtWS_iOSStyle/main.qml"_qs);

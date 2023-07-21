@@ -158,18 +158,18 @@ Page {
 
                 onCheckedChanged: {
                     if (checked)
-                        picker.showPicker()
+                        picker.showDatePicker()
                 }
 
                 DateTimePicker {
                     id: picker
 
                     onSelectedDateChanged: {
-                        deadlineSwitch.text = Qt.formatDateTime(picker.selectedDate, "d MMM hh:mm") ?? qsTr("Deadline")
+                        deadlineSwitch.text = Qt.formatDateTime(picker.selectedDate,
+                                                                "d MMMM HH:mm")
                     }
                 }
             }
-
         }
     }
 

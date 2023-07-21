@@ -8,13 +8,13 @@ class QDateTimePicker : public QQuickItem
 {
     Q_OBJECT
     Q_PROPERTY(QDateTime selectedDate READ selectedDate WRITE setSelectedDate NOTIFY selectedDateChanged)
+
 public:
     QDateTimePicker(QQuickItem *parent = nullptr);
-
     QDateTime selectedDate();
     void setSelectedDate(QDateTime);
 
-    Q_INVOKABLE void showPicker();
+    Q_INVOKABLE void showDatePicker();
 
 signals:
     void selectedDateChanged();
