@@ -54,4 +54,4 @@ This software package may provide links or access to third party libraries or co
 
 ### Third-Party Attributions
 
--
+- The icons used in this project are sourced from [Material Symbols Library](https://fonts.google.com/icons) provided by Google. The icons are available under the [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
