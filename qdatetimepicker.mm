@@ -1,3 +1,6 @@
+// Copyright (C) 2026 Qt Group.
+// SPDX-License-Identifier: LicenseRef-Qt-Commercial OR GPL-3.0-only
+
 #include "qdatetimepicker.h"
 
 #ifdef Q_OS_IOS
@@ -107,4 +110,3 @@ void QDateTimePicker::setSelectedDate(QDateTime newDate)
     m_selectedDate = newDate;
     emit selectedDateChanged();
 }
-
